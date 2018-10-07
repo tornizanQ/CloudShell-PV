@@ -1,0 +1,51 @@
+{
+  "Cloud oroviders addresses":{
+    "VMware vCenter address":""
+  },
+  "VMware vCenter":{
+    "User":"",
+    "Password":"",
+    "Default Datacenter":"",
+    "Default dvSwitch":"",
+    "Holding Network":"",
+    "VM Cluster":"",
+    "VM Location":"",
+    "VM Resource Pool":"",
+    "VM Storage":""
+  },
+
+  "AWS EC2": {
+    "AWS Access Key ID": "",
+    "AWS Mgmt SG ID":"",
+    "AWS Mgmt VPC ID":"",
+    "AWS Secret Access Key":"",
+    "Instance Type":"",
+    "Keypairs Location":"",
+    "Max Storage IOPS":"",
+    "Max Storage Size":"",
+    "Networks In Use":"",
+    "Region":""
+  },
+
+  "OpenStack":{
+    "Controller URL":"",
+    "Floating IP Subnet ID":"",
+    "OpenStack Domain Name":"",
+    "OpenStack Management Network ID":"",
+    "User Name":"",
+    "Password":"",
+    "Vlan Type":"",
+    "OpenStack Project Name":""
+  },
+  "Microsoft Azure":{
+    "Azure Application ID":"",
+    "Azure Application Key":"",
+    "Azure Subscription ID":"",
+    "Azure Tenant ID":"",
+    "Management Group Name":"",
+    "VM Size":"",
+    "Region":"",
+    "Networks In Use":""
+
+  }
+}

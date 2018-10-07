@@ -1,4 +1,9 @@
 import cloudshell.api.cloudshell_api as api
+import quali_api
+import os
+dirname = os.path.dirname(__file__)
+#filename = os.path.join(dirname, 'relative/path/to/file/you/want')
+#session=api.CloudShellAPISession("localhost","admin","admin","Global")
 
 def Update_server_ip(server_ip,user="admin",password="admin",domain="Global"):
     global session
@@ -6,9 +11,13 @@ def Update_server_ip(server_ip,user="admin",password="admin",domain="Global"):
     session = api.CloudShellAPISession(server_ip, user, password, domain)
     return
 
-def construct_bridges(number_of_bridges,number_of_ports,patch_panel_requiered,server_ip):
-    session = api.CloudShellAPISession(server_ip, "admin", "admin", "Global")
+def import_br():
+    Quali_Api_Session= quali_api.QualiAPISession("localhost","admin","admin")
+    Quali_Api_Session.ImportPackage(os.path.join(dirname,"Packages/Bridge and Patch Panel.zip"))
+    session.DeleteTopology("Bridge and Patch Panel")
 
+def construct_bridges(number_of_bridges,number_of_ports,patch_panel_requiered):
+    import_br()
     PP_port_counter=0
     port_mapping_list = []
     if patch_panel_requiered=="True":

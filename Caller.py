@@ -2,6 +2,7 @@ import Create_Cloud_providers as clp_creator
 import create_bridges_and_patch_panel_demand as bridge_constructor
 import Create_Users_From_List as user_creator
 from optparse import OptionParser
+import ImportPacks
 import sys
 
 def main():
@@ -32,6 +33,11 @@ def main():
                       dest="users",
                       default="None",
                       help="-u <path to a json file contain the user list>", )
+    parser.add_option("-a", "--add",
+                      action="store",  # optional because action defaults to "store"
+                      dest="add_apps",
+                      default="None",
+                      help="-a <path to a json file contain the user list>", )
     (options, args) = parser.parse_args()
 
     print"************"
@@ -49,10 +55,16 @@ def main():
             else:
                 print "creating bridges"
                 bridge_constructor.Update_server_ip(options.server_ip)
-                bridge_constructor.construct_bridges(int(bridge_construct_params[0]),int(bridge_construct_params[1]),bridge_construct_params[2],options.server_ip)
+                bridge_constructor.construct_bridges(int(bridge_construct_params[0]),int(bridge_construct_params[1]),bridge_construct_params[2])
         elif options.users != "None":
             user_creator.Update_server_ip(options.server_ip)
             user_creator.update_user_data_dest(options.users)
+        elif options.add_apps != "None":
+            try:
+                ImportPacks.selected_clp_app(options.add_apps)
+            except Exception as e:
+                print "please type VC AWS MA or OS only"
+
 
 
     return

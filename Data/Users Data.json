@@ -1,0 +1,41 @@
+{
+"Groups":
+{
+  "Regular Users Group":
+  {
+    "Role":"Regular",
+    "Domain":"Dom C",
+    "Users":{
+      "misterX":"1",
+      "Nunu":"1",
+      "Loboto":"1",
+      "misterX1":"1",
+      "Nunu1":"1",
+      "Loboto1":"1"
+
+    }
+  },
+    "Domain admins group":
+  {
+    "Role":"DomainAdmin",
+    "Domain":"Dom A",
+    "Users":{
+      "Ronu":"1",
+      "Bonu":"1",
+      "Gonu":"1"
+    }
+  },
+    "External Users group":
+  {
+    "Role":"External",
+    "Domain":"Dom B",
+    "Users":{
+      "Loli":"1",
+      "Boli":"1",
+      "Choli":"1",
+      "Moli":"1"
+    }
+  }
+
+}
+}
