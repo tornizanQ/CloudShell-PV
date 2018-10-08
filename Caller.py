@@ -61,6 +61,7 @@ def main():
             user_creator.update_user_data_dest(options.users)
         elif options.add_apps != "None":
             try:
+                ImportPacks.Update_server_ip(options.server_ip)
                 ImportPacks.selected_clp_app(options.add_apps)
             except Exception as e:
                 print "please type VC AWS MA or OS only"

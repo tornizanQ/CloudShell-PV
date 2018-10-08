@@ -3,13 +3,16 @@ import os
 import cloudshell.api.cloudshell_api as api
 dirname = os.path.dirname(__file__)
 #filename = os.path.join(dirname, 'relative/path/to/file/you/want')
+
+
 def Update_server_ip(server_ip,user="admin",password="admin",domain="Global"):
     print "the selected server is on " + server_ip
     global session
     session = api.CloudShellAPISession(server_ip, user, password, domain)
+    global quali_api_s
+    quali_api_s = quali_api.QualiAPISession(server_ip, "admin", "admin")
     return
 
-quali_api_s = quali_api.QualiAPISession("localhost","admin","admin")
 def selected_clp_app(clp_type):
     if clp_type=="AWS":
         import_aws_app()
@@ -36,7 +39,7 @@ def import_vcenter_app():
     except Exception as e:
         print e.message
         print "the vcenter app import has fail because some kind of fail"
-
+    
 def import_Azure_app():
     try:
         quali_api_s.ImportPackage(os.path.join(dirname,"Packages/Azure App.zip"))
@@ -53,3 +56,4 @@ def import_OpenStack_app():
         print e.message
         print "the Azure app import has fail because some kind of fail"
 
+import_OpenStack_app()
