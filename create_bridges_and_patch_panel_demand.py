@@ -9,11 +9,12 @@ def Update_server_ip(server_ip,user="admin",password="admin",domain="Global"):
     global session
     print "the selected server is on "+ server_ip
     session = api.CloudShellAPISession(server_ip, user, password, domain)
+    global quali_api_s
+    quali_api_s = quali_api.QualiAPISession(server_ip, "admin", "admin")
     return
 
 def import_br():
-    Quali_Api_Session= quali_api.QualiAPISession("localhost","admin","admin")
-    Quali_Api_Session.ImportPackage(os.path.join(dirname,"Packages/Bridge and Patch Panel.zip"))
+    quali_api_s.ImportPackage(os.path.join(dirname,"Packages/Bridge and Patch Panel.zip"))
     session.DeleteTopology("Bridge and Patch Panel")
 
 def construct_bridges(number_of_bridges,number_of_ports,patch_panel_requiered):
